@@ -3,6 +3,7 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import {useState} from "react";
 
 function DropdownMenu({
   ...props
@@ -235,8 +236,38 @@ function DropdownMenuSubContent({
     />
   )
 }
+ function DropdownButton() {
+  const [open, setOpen] = useState(false);
 
+  return (
+      <div className="relative inline-block text-left">
+        <button
+            onClick={() => setOpen(!open)}
+            className="inline-flex justify-center w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+        >
+          Options
+        </button>
+
+        {open && (
+            <div className="absolute right-0 mt-2 w-56 origin-top-right bg-white rounded-md shadow-lg">
+              <div className="py-1">
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  Profile
+                </a>
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  Settings
+                </a>
+                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  Logout
+                </a>
+              </div>
+            </div>
+        )}
+      </div>
+  );
+}
 export {
+  DropdownButton,
   DropdownMenu,
   DropdownMenuPortal,
   DropdownMenuTrigger,

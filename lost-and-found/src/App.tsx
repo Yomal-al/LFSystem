@@ -1,11 +1,13 @@
-import { NavBar } from "@/components/navbar";
-import React = require("react");
+import layout from '@/components/navbar'
+import React from 'react'
+import "tailwindcss";
+import Page from "@/components/navbar";
+
 
 function App() {
     return (
         <>
-            <NavBar/>
-            {/* Your content */}
+            <Page/>
         </>
     );
 }
