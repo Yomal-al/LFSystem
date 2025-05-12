@@ -8,7 +8,6 @@ import {
     NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import React from "react";
-import {TeamDropdownMenu} from "@/components/page";
 
 export default function Navbar() {
     return (
@@ -18,7 +17,7 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
-            <NavigationMenu className="w-xs place-items-center bg-blue-950 rounded-md  text-white px-6 py-4 shadow-md">
+            <NavigationMenu className="w-xs place-items-center bg-blue-950   text-white px-6 py-4 shadow-md">
                 <NavigationMenuList className="flex space-x-6">
                     <NavigationMenuItem>
                         <NavigationMenuLink href="/" className="font-semibold">

@@ -1,14 +1,14 @@
 import layout from '@/components/page'
 import React from 'react'
 import "tailwindcss";
-import Page from "@/components/page";
+import Layout from "@/components/page";
+
 
 
 function App() {
     return (
         <>
-
-            <Page/>
+            <Layout/>
         </>
     );
 }
