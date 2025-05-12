@@ -1,76 +1,28 @@
-import React from 'react';
+import { AppSidebar } from "@/components/ui/app-sidebar"
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+import { Separator } from "@/components/ui/separator"
 import {
     Sidebar,
     SidebarContent,
     SidebarGroup,
-    SidebarGroupContent,
-    SidebarGroupLabel,
+    SidebarGroupContent, SidebarGroupLabel,
+    SidebarInset,
     SidebarMenu,
     SidebarMenuButton,
-    SidebarMenuItem, SidebarProvider, SidebarTrigger,
+    SidebarMenuItem,
+    SidebarProvider,
+    SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/ui/app-sidebar"
-import {Home, Archive, Search, FileText, HomeIcon,ArchiveIcon, File, FileTextIcon} from "lucide-react";
-import {SearchIcon} from "lucide-react"; // or any other icons you use
-import NavBar from "./navbar"
+import React from "react"
+import {ArchiveIcon, FileTextIcon, HomeIcon, SearchIcon} from "lucide-react";
 
-
-// export default function Layout({ children }: { children: React.ReactNode }) {
-//     return (
-//         <div className="flex h-screen bg-emerald-100-100">
-//             {/* Sidebar */}
-//             <aside className="w-64 bg-gray-950  text-white p-4">
-//                 <h2 className="text-2xl font-bold mb-6">Dashboard</h2>
-//                 <nav className="space-y-2">
-//                     <a href="#" className="block px-4 py-2 rounded hover:bg-gray-700">Overview</a>
-//                     <a href="#" className="block px-4 py-2 rounded hover:bg-gray-700">Lost Items</a>
-//                     <a href="#" className="block px-4 py-2 rounded hover:bg-gray-700">Found Items</a>
-//                     <a href="#" className="block px-4 py-2 rounded hover:bg-gray-700">Reports</a>
-//                     <a href="#" className="block px-4 py-2 rounded hover:bg-gray-700">Settings</a>
-//                 </nav>
-//             </aside>
-//
-//             {/* Main Content */}
-//             <main className="flex-1 p-6">
-//                 <header className="border-b pb-4 mb-6">
-//                     <h1 className="text-3xl font-semibold">Overview</h1>
-//                 </header>
-//
-//                 {/* Main Dashboard Content */}
-//                 <div className="grid grid-cols-3 gap-6">
-//                     <div className="bg-gray-300 p-4 shadow rounded-lg">
-//                         <h3 className="text-xl font-bold mb-2">Total Lost Items</h3>
-//                         <p className="text-2xl">120</p>
-//                     </div>
-//
-//                     <div className="bg-gray-300 p-4 shadow rounded-lg">
-//                         <h3 className="text-xl font-bold mb-2">Total Found Items</h3>
-//                         <p className="text-2xl">95</p>
-//                     </div>
-//
-//                     <div className="bg-gray-300 p-4 shadow rounded-lg">
-//                         <h3 className="text-xl font-bold mb-2">Reports Generated</h3>
-//                         <p className="text-2xl">30</p>
-//                     </div>
-//                 </div>
-//             </main>
-//
-//             <SidebarProvider>
-//                 <AppSidebar />
-//                 <main>
-//                     <SidebarTrigger />
-//                     {children}
-//                 </main>
-//             </SidebarProvider>
-// //
-//         </div>
-//
-//
-//
-//     );
-//
-//
-// }
 const items=[
     {
         title: "Overview",
@@ -96,40 +48,62 @@ const items=[
 
 ]
 
-export default  function Layout() {
-    return (
 
-        <SidebarProvider defaultOpen={false}>
+export default function Page() {
+    return (
+        <SidebarProvider>
             <AppSidebar />
-            <main>
-                <SidebarTrigger />
-                <div className="bg-gray-700">
-        <Sidebar>
-            <SidebarContent>
-                <SidebarGroup>
-                    <SidebarGroupLabel className="p-1.5">Menu</SidebarGroupLabel>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            {items.map((item) => (
-                                <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild>
-                                        <a href={item.link}>
-                                            <item.icon/>
-                                            <span>{item.title}</span>
-                                        </a>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
-            </SidebarContent>
-        </Sidebar>
+
+            <SidebarInset>
+                <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+                    <div className="flex items-center gap-2 px-3">
+                        <SidebarTrigger />
+                        <Sidebar>
+                            <SidebarContent>
+                                <SidebarGroup>
+                                    <SidebarGroupLabel className="p-1.5">Menu</SidebarGroupLabel>
+                                    <SidebarGroupContent>
+                                        <SidebarMenu>
+                                            {items.map((item) => (
+                                                <SidebarMenuItem key={item.title}>
+                                                    <SidebarMenuButton asChild>
+                                                        <a href={item.link}>
+                                                            <item.icon/>
+                                                            <span>{item.title}</span>
+                                                        </a>
+                                                    </SidebarMenuButton>
+                                                </SidebarMenuItem>
+                                            ))}
+                                        </SidebarMenu>
+                                    </SidebarGroupContent>
+                                </SidebarGroup>
+                            </SidebarContent>
+                        </Sidebar>
+                        <Separator orientation="vertical" className="mr-2 h-4" />
+                        <Breadcrumb>
+                            <BreadcrumbList>
+                                <BreadcrumbItem className="hidden md:block">
+                                    <BreadcrumbLink href="#">
+                                        Building Your Application
+                                    </BreadcrumbLink>
+                                </BreadcrumbItem>
+                                <BreadcrumbSeparator className="hidden md:block" />
+                                <BreadcrumbItem>
+                                    <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                                </BreadcrumbItem>
+                            </BreadcrumbList>
+                        </Breadcrumb>
+                    </div>
+                </header>
+                <div className="flex flex-1 flex-col gap-4 p-4">
+                    <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+                        <div className="aspect-video rounded-xl bg-muted/50" />
+                        <div className="aspect-video rounded-xl bg-muted/50" />
+                        <div className="aspect-video rounded-xl bg-muted/50" />
+                    </div>
+                    <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
                 </div>
-            </main>
+            </SidebarInset>
         </SidebarProvider>
     )
 }
-
-
-
