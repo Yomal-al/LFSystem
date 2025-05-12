@@ -4,6 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
+#body{
+  background-color:#030711;
+}
 
 .logo {
   height: 6em;

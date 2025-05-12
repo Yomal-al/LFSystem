@@ -153,7 +153,7 @@ function Sidebar({
   side = "left",
   variant = "sidebar",
   collapsible = "offcanvas",
-  className,
+    className,
   children,
   ...props
 }: React.ComponentProps<"div"> & {
@@ -168,7 +168,7 @@ function Sidebar({
       <div
         data-slot="sidebar"
         className={cn(
-          "bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
+          "bg-gray-950 text-white",
           className
         )}
         {...props}

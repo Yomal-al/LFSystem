@@ -85,7 +85,7 @@
   --popover-foreground: oklch(0.985 0.002 247.839);
   --primary: oklch(0.928 0.006 264.531);
   --primary-foreground: oklch(0.21 0.034 264.665);
-  --secondary: oklch(0.278 0.033 256.848);
+  --secondary: oklch(0.4 0.059 254.51);
   --secondary-foreground: oklch(0.985 0.002 247.839);
   --muted: oklch(0.278 0.033 256.848);
   --muted-foreground: oklch(0.707 0.022 261.325);
@@ -110,27 +110,29 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 @layer base {
+
   :root {
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: oklch(0.985 0 0);            /* light gray */
+    --sidebar-foreground: oklch(0.36 0.01 260);        /* dark gray text */
+    --sidebar-primary: oklch(0.28 0.01 260);           /* almost black */
+    --sidebar-primary-foreground: oklch(0.985 0 0);    /* white/light gray text */
+    --sidebar-accent: oklch(0.95 0.01 260);            /* very light gray/blue */
+    --sidebar-accent-foreground: oklch(0.28 0.01 260); /* dark gray text */
+    --sidebar-border: oklch(0.92 0.02 240);            /* light gray-blue */
+    --sidebar-ring: oklch(0.65 0.23 282);              /* vivid blue/purple */
   }
 
   .dark {
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: oklch(0.28 0.01 260);        /* dark gray */
+    --sidebar-foreground: oklch(0.95 0.01 260);        /* light gray text */
+    --sidebar-primary: oklch(0.55 0.25 278);           /* blue accent */
+    --sidebar-primary-foreground: oklch(1 0 0);        /* white */
+    --sidebar-accent: oklch(0.32 0.01 260);            /* dark accent */
+    --sidebar-accent-foreground: oklch(0.95 0.01 260); /* light text */
+    --sidebar-border: oklch(0.32 0.01 260);            /* dark border */
+    --sidebar-ring: oklch(0.65 0.23 282);              /* vivid blue/purple */
   }
+
 }
 
 

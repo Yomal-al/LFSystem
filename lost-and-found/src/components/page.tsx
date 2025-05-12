@@ -12,7 +12,7 @@ import {
 import { AppSidebar } from "@/components/ui/app-sidebar"
 import {Home, Archive, Search, FileText, HomeIcon,ArchiveIcon, File, FileTextIcon} from "lucide-react";
 import {SearchIcon} from "lucide-react"; // or any other icons you use
-
+import NavBar from "./navbar"
 
 
 // export default function Layout({ children }: { children: React.ReactNode }) {
@@ -98,14 +98,16 @@ const items=[
 
 export default  function Layout() {
     return (
-        <SidebarProvider>
+
+        <SidebarProvider defaultOpen={false}>
             <AppSidebar />
             <main>
                 <SidebarTrigger />
+                <div className="bg-gray-700">
         <Sidebar>
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Menu</SidebarGroupLabel>
+                    <SidebarGroupLabel className="p-1.5">Menu</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
@@ -123,6 +125,7 @@ export default  function Layout() {
                 </SidebarGroup>
             </SidebarContent>
         </Sidebar>
+                </div>
             </main>
         </SidebarProvider>
     )
