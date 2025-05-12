@@ -1,12 +1,13 @@
-import layout from '@/components/navbar'
+import layout from '@/components/page'
 import React from 'react'
 import "tailwindcss";
-import Page from "@/components/navbar";
+import Page from "@/components/page";
 
 
 function App() {
     return (
         <>
+
             <Page/>
         </>
     );
