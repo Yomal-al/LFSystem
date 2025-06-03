@@ -23,33 +23,35 @@ import {
 import React from "react"
 import {ArchiveIcon, FileTextIcon, HomeIcon, SearchIcon} from "lucide-react";
 
-const items=[
-    {
-        title: "Overview",
-        link: "/",
-        icon: HomeIcon,
-    },
 
-    {
-        title: "Total Lost Items",
-        link: "/total_lost_items",
-        icon: ArchiveIcon,
-    },
-    {
-        title: "Total Found Items",
-        link: "/total_found_items",
-        icon: SearchIcon,
-    },
-    {
-        title: "Reports",
-        link: "/reports/",
-        icon: FileTextIcon,
-    },
-
-]
 
 
 export default function Page() {
+    const items=[
+        {
+            title: "Overview",
+            link: "/",
+            icon: HomeIcon,
+        },
+
+        {
+            title: "Total Lost Items",
+            link: "/total_lost_items",
+            icon: ArchiveIcon,
+        },
+        {
+            title: "Total Found Items",
+            link: "/total_found_items",
+            icon: SearchIcon,
+        },
+        {
+            title: "Reports",
+            link: "/reports/",
+            icon: FileTextIcon,
+        },
+
+    ]
+
     return (
         <SidebarProvider>
             <AppSidebar />
@@ -84,12 +86,12 @@ export default function Page() {
                             <BreadcrumbList>
                                 <BreadcrumbItem className="hidden md:block">
                                     <BreadcrumbLink href="#">
-                                        Building Your Application
+                                        Find Your Lost Items
                                     </BreadcrumbLink>
                                 </BreadcrumbItem>
                                 <BreadcrumbSeparator className="hidden md:block" />
                                 <BreadcrumbItem>
-                                    <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                                    <BreadcrumbPage>Lost Items</BreadcrumbPage>
                                 </BreadcrumbItem>
                             </BreadcrumbList>
                         </Breadcrumb>
@@ -97,9 +99,8 @@ export default function Page() {
                 </header>
                 <div className="flex flex-1 flex-col gap-4 p-4">
                     <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                        <div className="aspect-video rounded-xl bg-muted/50" />
-                        <div className="aspect-video rounded-xl bg-muted/50" />
-                        <div className="aspect-video rounded-xl bg-muted/50" />
+                        <div></div>
+                        <div className="aspect-video rounded-xl bg-muted/30" />
                     </div>
                     <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
                 </div>
