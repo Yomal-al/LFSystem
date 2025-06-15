@@ -21,19 +21,19 @@ import {
     SidebarTrigger,
 } from "@/components/ui/sidebar"
 import React from "react"
-import {ArchiveIcon, FileTextIcon, HomeIcon, SearchIcon} from "lucide-react";
-
-
-
+import { ArchiveIcon, FileTextIcon, HomeIcon, SearchIcon } from "lucide-react"
+import { Link, useLocation } from "react-router-dom"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function Page() {
-    const items=[
+    const location = useLocation();
+
+    const items = [
         {
             title: "Overview",
             link: "/",
             icon: HomeIcon,
         },
-
         {
             title: "Total Lost Items",
             link: "/total_lost_items",
@@ -46,10 +46,9 @@ export default function Page() {
         },
         {
             title: "Reports",
-            link: "/reports/",
+            link: "/reports",
             icon: FileTextIcon,
         },
-
     ]
 
     return (
@@ -67,12 +66,12 @@ export default function Page() {
                                     <SidebarGroupContent>
                                         <SidebarMenu>
                                             {items.map((item) => (
-                                                <SidebarMenuItem key={item.title}>
+                                                <SidebarMenuItem key={item.title} active={location.pathname === item.link}>
                                                     <SidebarMenuButton asChild>
-                                                        <a href={item.link}>
-                                                            <item.icon/>
+                                                        <Link to={item.link} className="flex items-center gap-2">
+                                                            <item.icon className="h-4 w-4" />
                                                             <span>{item.title}</span>
-                                                        </a>
+                                                        </Link>
                                                     </SidebarMenuButton>
                                                 </SidebarMenuItem>
                                             ))}
@@ -97,12 +96,43 @@ export default function Page() {
                         </Breadcrumb>
                     </div>
                 </header>
-                <div className="flex flex-1 flex-col gap-4 p-4">
-                    <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                        <div></div>
-                        <div className="aspect-video rounded-xl bg-muted/30" />
+
+                <div className="flex flex-1 flex-col gap-6 p-6 bg-muted/50 min-h-screen">
+                    <div className="grid gap-4 md:grid-cols-3">
+                        <Card className="bg-white">
+                            <CardHeader>
+                                <CardTitle>Total Lost Items</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-2xl font-bold">123</p>
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-white">
+                            <CardHeader>
+                                <CardTitle>Total Found Items</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-2xl font-bold">89</p>
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-white">
+                            <CardHeader>
+                                <CardTitle>Pending Reports</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-2xl font-bold">12</p>
+                            </CardContent>
+                        </Card>
                     </div>
-                    <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+
+                    <div className="rounded-xl p-6 bg-white shadow-sm">
+                        <h2 className="text-xl font-semibold mb-2">Recent Activity</h2>
+                        <ul className="list-disc ml-5 space-y-1 text-muted-foreground">
+                            <li>Student ID card found at library.</li>
+                            <li>Phone reported lost near cafeteria.</li>
+                            <li>Wallet found and submitted to admin office.</li>
+                        </ul>
+                    </div>
                 </div>
             </SidebarInset>
         </SidebarProvider>
